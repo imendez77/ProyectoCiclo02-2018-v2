@@ -51,12 +51,68 @@ public class DAOUsuario implements Operaciones{
 
     @Override
     public boolean modificar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        user = (Usuario) obj;
+        Connection con;
+        PreparedStatement pst;
+        String sql = "update usuario set email=?, username=?, pass=?, rol_id=?, fecha_modif= now() where id=?";
+        
+        try 
+        {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
+            pst = con.prepareStatement(sql);
+            
+            pst.setString(1, user.getEmail());
+            pst.setString(2, user.getUsername());
+            pst.setString(3, user.getPassword());
+            pst.setInt(4, user.getId_rol());
+            pst.setInt(6, user.getId_user());
+            
+            int row = pst.executeUpdate();
+            
+            if(row>0)
+            {
+                con.close();
+                return true;
+            }else{
+                con.close();
+                return false;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al insertar: "+e.getMessage(), "ERROR", 0);
+            return false;
+        }
     }
 
     @Override
     public boolean eliminar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        user = (Usuario) obj;
+        Connection con;
+        PreparedStatement pst;
+        String sql = "update usuario set estado=0 where id_user = ?";
+        
+        try 
+        {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
+            pst = con.prepareStatement(sql);
+            
+            pst.setInt(1, user.getId_user());
+            
+            int row = pst.executeUpdate();
+            
+            if(row>0)
+            {
+                con.close();
+                return true;
+            }else{
+                con.close();
+                return false;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al insertar: "+e.getMessage(), "ERROR", 0);
+            return false;
+        }
     }
 
     @Override

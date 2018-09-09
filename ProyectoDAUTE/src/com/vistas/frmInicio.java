@@ -27,12 +27,12 @@ public class frmInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtPass = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,22 +57,21 @@ public class frmInicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)))
-                .addGap(95, 95, 95))
             .addGroup(layout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtPass)
+                    .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
+                .addGap(95, 95, 95))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,21 +97,45 @@ public class frmInicio extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String us = this.txtUser.getText();
         String pss = this.txtPass.getText();
-
-        if(dao.login(us, pss)==1)
+        
+        if(this.txtUser.getText().isEmpty() || this.txtPass.getPassword().length == 0)
         {
-            this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Bienvenido");
-            home.setVisible(true);
-            home.rol(us);
+            JOptionPane.showMessageDialog(null, "Debe ingresar Usuario y Contraseña");
         }
-
-        if(dao.login(us, pss)==5)
+        else
         {
-            JOptionPane.showMessageDialog(null, "Datos Incorrectos", "ERROR", 0);
-            this.txtUser.setText("");
-            this.txtPass.setText("");
+            if(dao.login(us, pss)==1)
+            {
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Bienvenido Administrador");
+                home.setVisible(true);
+                home.rol(us, 1);
+            }
+
+            if(dao.login(us, pss)==2)
+            {
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+                home.setVisible(true);
+                home.rol(us, 2);
+            }
+
+            if(dao.login(us, pss)==3)
+            {
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+                home.setVisible(true);
+                home.rol(us, 3);
+            }
+
+            if(dao.login(us, pss)==5)
+            {
+                JOptionPane.showMessageDialog(null, "Datos Incorrectos", "ERROR", 0);
+                this.txtUser.setText("");
+                this.txtPass.setText("");
+            }
         }
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -155,7 +178,7 @@ public class frmInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

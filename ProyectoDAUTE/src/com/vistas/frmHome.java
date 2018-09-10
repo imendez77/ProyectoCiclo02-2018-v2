@@ -34,23 +34,44 @@ public class frmHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jLabel1 = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblRol = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
+        btnInicio = new javax.swing.JMenu();
         btnLogoutfrm = new javax.swing.JMenuItem();
         btnExitmdi = new javax.swing.JMenuItem();
-
-        jMenu1.setText("jMenu1");
+        btnSistema = new javax.swing.JMenu();
+        btnUsuarios = new javax.swing.JMenuItem();
+        btnRoles = new javax.swing.JMenuItem();
+        btnProfesionales = new javax.swing.JMenu();
+        btnProfesiones = new javax.swing.JMenuItem();
+        btnIdiomas = new javax.swing.JMenuItem();
+        btnHabilidad = new javax.swing.JMenuItem();
+        btnEmpresa = new javax.swing.JMenu();
+        btnCategoria = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(2, 2));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Sistema de Vacantes Profesionales");
+        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 763, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 422, Short.MAX_VALUE)
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblUser.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblUser.setText("jLabel2");
@@ -58,12 +79,50 @@ public class frmHome extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Bienvenido:");
 
-        lblRol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblRol.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         lblRol.setText("jLabel3");
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Inicio");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Sistema de Vacantes Profesionales");
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRol)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(lblUser))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblRol))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        menuBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-página-principal-24 (1).png"))); // NOI18N
+        btnInicio.setMnemonic('f');
+        btnInicio.setText("Inicio");
+
+        btnLogoutfrm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-cierre-de-sesión-redondeado-hacia-abajo-24.png"))); // NOI18N
         btnLogoutfrm.setMnemonic('o');
         btnLogoutfrm.setText("Logout");
         btnLogoutfrm.addActionListener(new java.awt.event.ActionListener() {
@@ -71,8 +130,9 @@ public class frmHome extends javax.swing.JFrame {
                 btnLogoutfrmActionPerformed(evt);
             }
         });
-        fileMenu.add(btnLogoutfrm);
+        btnInicio.add(btnLogoutfrm);
 
+        btnExitmdi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-apagar-24.png"))); // NOI18N
         btnExitmdi.setMnemonic('x');
         btnExitmdi.setText("Exit");
         btnExitmdi.addActionListener(new java.awt.event.ActionListener() {
@@ -80,9 +140,79 @@ public class frmHome extends javax.swing.JFrame {
                 btnExitmdiActionPerformed(evt);
             }
         });
-        fileMenu.add(btnExitmdi);
+        btnInicio.add(btnExitmdi);
 
-        menuBar.add(fileMenu);
+        menuBar.add(btnInicio);
+
+        btnSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-configuración-3-24.png"))); // NOI18N
+        btnSistema.setMnemonic('f');
+        btnSistema.setText("Sistema");
+
+        btnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-usuario-de-género-neutro-30 (1).png"))); // NOI18N
+        btnUsuarios.setMnemonic('o');
+        btnUsuarios.setText("Gestión de Usuarios");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
+        btnSistema.add(btnUsuarios);
+
+        btnRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-grupo-de-usuarios-hombre-hombre-24.png"))); // NOI18N
+        btnRoles.setMnemonic('o');
+        btnRoles.setText("Gestión de Roles");
+        btnRoles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRolesActionPerformed(evt);
+            }
+        });
+        btnSistema.add(btnRoles);
+
+        menuBar.add(btnSistema);
+
+        btnProfesionales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-trabajador-de-sexo-masculino-24.png"))); // NOI18N
+        btnProfesionales.setMnemonic('f');
+        btnProfesionales.setText("Profesionales");
+
+        btnProfesiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-diploma-1-24.png"))); // NOI18N
+        btnProfesiones.setText("Profesiones");
+        btnProfesionales.add(btnProfesiones);
+
+        btnIdiomas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-idioma-24.png"))); // NOI18N
+        btnIdiomas.setMnemonic('o');
+        btnIdiomas.setText("Idiomas");
+        btnIdiomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIdiomasActionPerformed(evt);
+            }
+        });
+        btnProfesionales.add(btnIdiomas);
+
+        btnHabilidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-habilidad-de-desarrollo-24.png"))); // NOI18N
+        btnHabilidad.setText("Habilidades");
+        btnProfesionales.add(btnHabilidad);
+
+        menuBar.add(btnProfesionales);
+
+        btnEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-organización-24.png"))); // NOI18N
+        btnEmpresa.setMnemonic('f');
+        btnEmpresa.setText("Empresa");
+
+        btnCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-categorizar-24.png"))); // NOI18N
+        btnCategoria.setMnemonic('o');
+        btnCategoria.setText("Rubro");
+        btnCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCategoriaActionPerformed(evt);
+            }
+        });
+        btnEmpresa.add(btnCategoria);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-analizar-el-curriculum-vitae-24.png"))); // NOI18N
+        jMenuItem1.setText("Vacantes");
+        btnEmpresa.add(jMenuItem1);
+
+        menuBar.add(btnEmpresa);
 
         setJMenuBar(menuBar);
 
@@ -90,31 +220,15 @@ public class frmHome extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblRol)
-                .addGap(35, 35, 35))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUser)
-                    .addComponent(jLabel3)
-                    .addComponent(lblRol))
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPane1))
         );
 
         pack();
@@ -139,6 +253,22 @@ public class frmHome extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnLogoutfrmActionPerformed
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void btnIdiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdiomasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIdiomasActionPerformed
+
+    private void btnCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCategoriaActionPerformed
+
+    private void btnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRolesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRolesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,13 +306,23 @@ public class frmHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnCategoria;
+    private javax.swing.JMenu btnEmpresa;
     private javax.swing.JMenuItem btnExitmdi;
+    private javax.swing.JMenuItem btnHabilidad;
+    private javax.swing.JMenuItem btnIdiomas;
+    private javax.swing.JMenu btnInicio;
     private javax.swing.JMenuItem btnLogoutfrm;
-    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu btnProfesionales;
+    private javax.swing.JMenuItem btnProfesiones;
+    private javax.swing.JMenuItem btnRoles;
+    private javax.swing.JMenu btnSistema;
+    private javax.swing.JMenuItem btnUsuarios;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRol;
     public javax.swing.JLabel lblUser;
     private javax.swing.JMenuBar menuBar;

@@ -103,7 +103,7 @@ public class frmInicio extends javax.swing.JFrame {
         
         if(this.txtUser.getText().isEmpty() || this.txtPass.getPassword().length == 0)
         {
-            JOptionPane.showMessageDialog(null, "Debe ingresar Usuario y Contraseña");
+            JOptionPane.showMessageDialog(null, "Debe llenar ambos campos");
         }
         else
         {

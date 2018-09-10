@@ -34,7 +34,7 @@ public class frmHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        desktopPane = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,26 +48,21 @@ public class frmHome extends javax.swing.JFrame {
         btnUsuarios = new javax.swing.JMenuItem();
         btnRoles = new javax.swing.JMenuItem();
         btnProfesionales = new javax.swing.JMenu();
-        btnProfesiones = new javax.swing.JMenuItem();
-        btnIdiomas = new javax.swing.JMenuItem();
-        btnHabilidad = new javax.swing.JMenuItem();
         btnEmpresa = new javax.swing.JMenu();
-        btnCategoria = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(2, 2));
 
-        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
+        desktopPane.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
+        desktopPane.setLayout(desktopPaneLayout);
+        desktopPaneLayout.setHorizontalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 763, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        desktopPaneLayout.setVerticalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 422, Short.MAX_VALUE)
         );
 
@@ -122,7 +117,7 @@ public class frmHome extends javax.swing.JFrame {
         btnInicio.setMnemonic('f');
         btnInicio.setText("Inicio");
 
-        btnLogoutfrm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-cierre-de-sesión-redondeado-hacia-abajo-24.png"))); // NOI18N
+        btnLogoutfrm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-exportar-24.png"))); // NOI18N
         btnLogoutfrm.setMnemonic('o');
         btnLogoutfrm.setText("Logout");
         btnLogoutfrm.addActionListener(new java.awt.event.ActionListener() {
@@ -173,45 +168,11 @@ public class frmHome extends javax.swing.JFrame {
         btnProfesionales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-trabajador-de-sexo-masculino-24.png"))); // NOI18N
         btnProfesionales.setMnemonic('f');
         btnProfesionales.setText("Profesionales");
-
-        btnProfesiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-diploma-1-24.png"))); // NOI18N
-        btnProfesiones.setText("Profesiones");
-        btnProfesionales.add(btnProfesiones);
-
-        btnIdiomas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-idioma-24.png"))); // NOI18N
-        btnIdiomas.setMnemonic('o');
-        btnIdiomas.setText("Idiomas");
-        btnIdiomas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIdiomasActionPerformed(evt);
-            }
-        });
-        btnProfesionales.add(btnIdiomas);
-
-        btnHabilidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-habilidad-de-desarrollo-24.png"))); // NOI18N
-        btnHabilidad.setText("Habilidades");
-        btnProfesionales.add(btnHabilidad);
-
         menuBar.add(btnProfesionales);
 
         btnEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-organización-24.png"))); // NOI18N
         btnEmpresa.setMnemonic('f');
         btnEmpresa.setText("Empresa");
-
-        btnCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-categorizar-24.png"))); // NOI18N
-        btnCategoria.setMnemonic('o');
-        btnCategoria.setText("Rubro");
-        btnCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCategoriaActionPerformed(evt);
-            }
-        });
-        btnEmpresa.add(btnCategoria);
-
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-analizar-el-curriculum-vitae-24.png"))); // NOI18N
-        jMenuItem1.setText("Vacantes");
-        btnEmpresa.add(jMenuItem1);
-
         menuBar.add(btnEmpresa);
 
         setJMenuBar(menuBar);
@@ -221,14 +182,14 @@ public class frmHome extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jDesktopPane1)
+            .addComponent(desktopPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane1))
+                .addComponent(desktopPane))
         );
 
         pack();
@@ -255,19 +216,15 @@ public class frmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutfrmActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        // TODO add your handling code here:
+        desktopPane.removeAll();
+        desktopPane.updateUI();
+        //frmUsuario frmU = null;
+        //desktopPane.add(frmU);
+        //frmU.setVisible(true);
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
-    private void btnIdiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdiomasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnIdiomasActionPerformed
-
-    private void btnCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCategoriaActionPerformed
-
     private void btnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRolesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnRolesActionPerformed
 
     /**
@@ -306,22 +263,17 @@ public class frmHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem btnCategoria;
     private javax.swing.JMenu btnEmpresa;
     private javax.swing.JMenuItem btnExitmdi;
-    private javax.swing.JMenuItem btnHabilidad;
-    private javax.swing.JMenuItem btnIdiomas;
     private javax.swing.JMenu btnInicio;
     private javax.swing.JMenuItem btnLogoutfrm;
     private javax.swing.JMenu btnProfesionales;
-    private javax.swing.JMenuItem btnProfesiones;
     private javax.swing.JMenuItem btnRoles;
     private javax.swing.JMenu btnSistema;
     private javax.swing.JMenuItem btnUsuarios;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRol;
     public javax.swing.JLabel lblUser;

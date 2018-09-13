@@ -24,7 +24,7 @@ public class DAOEmpresa implements Operaciones{
         emp = (Empresa) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "insert into empresa (descripcion,direccion,ciudad,mision,vision,contacto,id_categoria_e,id_usuario,fecha_creacion,fecha_modif,estado) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into empresa (descripcion,direccion,ciudad,mision,vision,contacto,id_categoria_e,id_usuario,fecha_creacion,fecha_modif,estado,nombre) values (?,?,?,?,?,?,?,?)";
         
         try 
         {
@@ -41,6 +41,7 @@ public class DAOEmpresa implements Operaciones{
             pst.setString(7, emp.getFecha_creacion());
             pst.setString(8, emp.getFecha_modif());
             pst.setInt(9, emp.getEstado());
+            pst.setString(10, emp.getNombre());
             
             int row = pst.executeUpdate();
             
@@ -63,7 +64,7 @@ public class DAOEmpresa implements Operaciones{
          emp = (Empresa) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "update empresa set descripcion=?,direccion=?,ciudad=?,mision=?,vision=?,contacto=?, fecha_creacion=?, fecha_modif=?, estado= ? where id_empresa=?";
+        String sql = "update empresa set descripcion=?,direccion=?,ciudad=?,mision=?,vision=?,contacto=?, fecha_creacion=?, fecha_modif=?, estado= ? nombre=? where id_empresa=?";
         
         try 
         {
@@ -80,7 +81,8 @@ public class DAOEmpresa implements Operaciones{
             pst.setString(6, emp.getFecha_creacion());
             pst.setString(7, emp.getFecha_modif());
             pst.setInt(8, emp.getEstado());
-            pst.setInt(9, emp.getId_empresa());
+            pst.setString(9, emp.getContacto());
+            pst.setInt(10, emp.getId_empresa());
             
             
             int row = pst.executeUpdate();

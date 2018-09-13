@@ -22,11 +22,13 @@ public class Empresa {
     private String fecha_creacion;
     private String fecha_modif;
     private int estado;
+    private String nombre;
 
     public Empresa() {
     }
 
-    public Empresa(int id_empresa, String descripcion, String direccion, String ciudad, String mision, String vision, String contacto, int id_categoria_e, int id_usuario, String fecha_creacion, String fecha_modif, int estado) {
+    public Empresa(int id_empresa, String descripcion, String direccion, String ciudad, String mision, String vision, String contacto, 
+            int id_categoria_e, int id_usuario, String fecha_creacion, String fecha_modif, int estado, String nombre) {
         this.id_empresa = id_empresa;
         this.descripcion = descripcion;
         this.direccion = direccion;
@@ -39,6 +41,15 @@ public class Empresa {
         this.fecha_creacion = fecha_creacion;
         this.fecha_modif = fecha_modif;
         this.estado = estado;
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getEstado() {

@@ -1,26 +1,26 @@
 package com.vistas;
 
 import javax.swing.JOptionPane;
+import com.vistas.*;
 
 /**
  *
  * @author Isra Méndez
  */
 public class frmHome extends javax.swing.JFrame {
-    
+
     public frmHome() {
         initComponents();
     }
-    
-    public void rol(String user, int rol)
-    {
+
+    public void rol(String user, int rol) {
         this.lblUser.setText(user);
-        if(rol==1)
-        {
-            this.lblRol.setText("Administrador");        
+        if (rol == 1) {
+            this.lblRol.setText("Administrador");
         }
-            
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -40,6 +40,7 @@ public class frmHome extends javax.swing.JFrame {
         btnRoles = new javax.swing.JMenuItem();
         btnProfesionales = new javax.swing.JMenu();
         btnEmpresa = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(2, 2));
@@ -166,6 +167,15 @@ public class frmHome extends javax.swing.JFrame {
         btnEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-organización-24.png"))); // NOI18N
         btnEmpresa.setMnemonic('f');
         btnEmpresa.setText("Empresa");
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        btnEmpresa.add(jMenuItem1);
+
         menuBar.add(btnEmpresa);
 
         setJMenuBar(menuBar);
@@ -190,23 +200,21 @@ public class frmHome extends javax.swing.JFrame {
 
     private void btnExitmdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitmdiActionPerformed
         int yesnot = JOptionPane.showConfirmDialog(this, "¿Está seguro de que quiere salir del sistema?", "¡Advertencia!", JOptionPane.YES_NO_OPTION);
-        
-        if(yesnot==0)
-        {
+
+        if (yesnot == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_btnExitmdiActionPerformed
 
     private void btnLogoutfrmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutfrmActionPerformed
         int yesnot = JOptionPane.showConfirmDialog(this, "¿Está seguro de cerrar la sesión?", "¡Advertencia!", JOptionPane.YES_NO_OPTION);
-        
-        if(yesnot==0)
-        {
+
+        if (yesnot == 0) {
             this.setVisible(false);
             frmInicio inicio = null;
             inicio.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_btnLogoutfrmActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
@@ -218,8 +226,15 @@ public class frmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRolesActionPerformed
-        
+
     }//GEN-LAST:event_btnRolesActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmEmpresa emp = new FrmEmpresa();
+        desktopPane.add(emp);
+        emp.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,6 +283,7 @@ public class frmHome extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRol;
     public javax.swing.JLabel lblUser;

@@ -17,7 +17,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
     DAOUsuario dao = new DAOUsuario();
     
-    String rows[] = {"Code", "Name", "Address", "Phone Number"};
+    String rows[] = {"Código", "Email", "Username", "Password", "Estado", "ID Rol", "F. Creación", "F. Eliminación", "F. Modificación"};
     DefaultTableModel model = new DefaultTableModel(rows, 0);
     ArrayList<Object[]> data = new ArrayList<>();
     
@@ -133,6 +133,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tableDUsuarios);
 
         btnNew.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-documento-24.png"))); // NOI18N
         btnNew.setText("Nuevo");
 
         btnSave.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -156,13 +157,13 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnNew, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                .addComponent(btnNew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(33, 33, 33)
-                .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                 .addGap(39, 39, 39)
-                .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                 .addGap(38, 38, 38)
-                .addComponent(btnModify, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addComponent(btnModify, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                 .addGap(34, 34, 34)
                 .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

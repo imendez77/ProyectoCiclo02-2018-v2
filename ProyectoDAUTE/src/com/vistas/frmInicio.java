@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 public class frmInicio extends javax.swing.JFrame {
     DAOUsuario dao = new DAOUsuario();
     frmHome home = new frmHome();
+    frmUsuario user = new frmUsuario();
     
     /**
      * Creates new form frmInicio
@@ -99,7 +100,7 @@ public class frmInicio extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String us = this.txtUser.getText();
-        String pss = this.txtPass.getText();
+        String pss = String.valueOf(this.txtPass.getPassword());
         
         if(this.txtUser.getText().isEmpty() || this.txtPass.getPassword().length == 0)
         {
@@ -111,14 +112,13 @@ public class frmInicio extends javax.swing.JFrame {
             {
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Bienvenido Administrador");
-                home.setVisible(true);
-                home.rol(us, 1);
+                user.setVisible(true);
             }
 
             if(dao.login(us, pss)==2)
             {
                 this.setVisible(false);
-                JOptionPane.showMessageDialog(null, "Bienvenido");
+                JOptionPane.showMessageDialog(null, "Bienvenido"+dao.login(us, pss));
                 home.setVisible(true);
                 home.rol(us, 2);
             }
@@ -126,7 +126,7 @@ public class frmInicio extends javax.swing.JFrame {
             if(dao.login(us, pss)==3)
             {
                 this.setVisible(false);
-                JOptionPane.showMessageDialog(null, "Bienvenido");
+                JOptionPane.showMessageDialog(null, "Bienvenido"+dao.login(us, pss));
                 home.setVisible(true);
                 home.rol(us, 3);
             }

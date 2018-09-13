@@ -33,6 +33,11 @@ public class DAOUsuario implements Operaciones{
             while(rs.next())
             {
                 rol = rs.getInt("rol_id");
+                
+                if(rol == 0)
+                {
+                    rol=5;
+                }
             }
             
             return rol;

@@ -164,7 +164,7 @@ public class DAOUsuario implements Operaciones{
             pst.setString(2, user.getUsername());
             pst.setString(3, user.getPassword());
             pst.setInt(4, user.getId_rol());
-            pst.setInt(6, user.getId_user());
+            pst.setInt(5, user.getId_user());
             
             int row = pst.executeUpdate();
             

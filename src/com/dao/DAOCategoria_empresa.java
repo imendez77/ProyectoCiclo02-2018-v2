@@ -5,8 +5,8 @@ import com.conexion.Conexion;
 import com.modelo.Usuario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import modelo.Categoria_empresa;
-import modelo.Operaciones;
+import com.modelo.Categoria_empresa;
+import com.modelo.Operaciones;
 import java.sql.*;
 
 /**
@@ -122,7 +122,7 @@ public class DAOCategoria_empresa implements Operaciones{
     }
 
     @Override
-    public ArrayList<Object[]> consultar() {
+    public ArrayList<Object[]> mostrar() {
         ArrayList<Object[]> datos = new ArrayList<>();
         Connection con;
         PreparedStatement pst;

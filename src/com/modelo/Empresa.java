@@ -1,5 +1,5 @@
 
-package modelo;
+package com.modelo;
 
 /**
  *Nombre:Empresa

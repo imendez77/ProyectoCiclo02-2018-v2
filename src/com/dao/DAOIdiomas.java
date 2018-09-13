@@ -1,7 +1,7 @@
 package com.dao;
-import modelo.Operaciones;
+import com.modelo.Operaciones;
 import com.conexion.Conexion;
-import modelo.Idiomas;
+import com.modelo.Idiomas;
 import com.modelo.Usuario;
 import java.util.ArrayList;
 import java.sql.*;
@@ -148,8 +148,5 @@ public class DAOIdiomas implements Operaciones{
             return datos;
         }
     }
-    @Override
-    public ArrayList<Object[]> consultar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

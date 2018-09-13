@@ -9,9 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import modelo.Cursos_estudios;
-import modelo.Experiencia_laboral;
-import modelo.Operaciones;
+import com.modelo.Cursos_estudios;
+import com.modelo.Experiencia_laboral;
+import com.modelo.Operaciones;
 
 /**
  *Nombre:DAOExperiencia_laboral
@@ -133,7 +133,7 @@ public class DAOExperiencia_laboral implements Operaciones {
     }
 
     @Override
-    public ArrayList<Object[]> consultar() {
+    public ArrayList<Object[]> mostrar() {
         ArrayList<Object[]> datos = new ArrayList<>();
         Connection con;
         PreparedStatement pst;

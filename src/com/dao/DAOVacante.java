@@ -2,7 +2,7 @@ package com.dao;
 import com.modelo.Operaciones;
 import com.conexion.Conexion;
 import com.modelo.Usuario;
-import modelo.Vacante;
+import com.modelo.Vacante;
 import java.util.ArrayList;
 import java.sql.*;
 import javax.swing.JOptionPane;

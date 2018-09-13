@@ -3,7 +3,7 @@ package com.dao;
 import com.modelo.Operaciones;
 import com.conexion.Conexion;
 import com.modelo.Usuario;
-import modelo.Profesion;
+import com.modelo.Profesion;
 import java.util.ArrayList;
 import java.sql.*;
 import javax.swing.JOptionPane;

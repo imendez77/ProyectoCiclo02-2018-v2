@@ -3,11 +3,11 @@ package com.dao;
 
 import com.conexion.Conexion;
 import java.util.ArrayList;
-import modelo.Operaciones;
+import com.modelo.Operaciones;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import modelo.Empresa;
-import modelo.Experiencia_laboral;
+import com.modelo.Empresa;
+import com.modelo.Experiencia_laboral;
 
 /**
  *Nombre:DAOEmpresa
@@ -131,7 +131,7 @@ public class DAOEmpresa implements Operaciones{
     }
 
     @Override
-    public ArrayList<Object[]> consultar() {
+    public ArrayList<Object[]> mostrar() {
         ArrayList<Object[]> datos = new ArrayList<>();
         Connection con;
         PreparedStatement pst;

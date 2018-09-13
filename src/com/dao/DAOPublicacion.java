@@ -2,7 +2,7 @@ package com.dao;
 
 import com.modelo.Operaciones;
 import com.conexion.Conexion;
-import modelo.Publicacion;
+import com.modelo.Publicacion;
 import com.modelo.Usuario;
 import java.util.ArrayList;
 import java.sql.*;

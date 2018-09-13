@@ -1,6 +1,7 @@
 package com.vistas;
 
 import com.dao.DAOUsuario;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -100,6 +101,9 @@ public class frmInicio extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String us = this.txtUser.getText();
         String pss = String.valueOf(this.txtPass.getPassword());
+        
+        ArrayList<Object[]> userA = new ArrayList<>();
+        
         
         if(this.txtUser.getText().isEmpty() || this.txtPass.getPassword().length == 0)
         {

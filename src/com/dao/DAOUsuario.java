@@ -70,6 +70,7 @@ public class DAOUsuario implements Operaciones{
                 userA.add(rows);
             }
             
+            
         } 
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al buscar: "+e.getMessage(), "ERROR", 0);

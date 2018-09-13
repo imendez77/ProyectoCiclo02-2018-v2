@@ -30,8 +30,8 @@ public class FrmEmpresa extends javax.swing.JInternalFrame {
     
     DAOEmpresa dao = new DAOEmpresa();
     
-    String rows[] = {"Código", "descripcion", "direccion", "ciudad", "ciudad", "mision", "vision", "contacto",
-        "categoria","usuario","fecha creacion","fecha modificacion","estado", "nombre "};
+    String rows[] = {"Código", "descripcion", "direccion", "ciudad", "mision", "vicion", "contacto", "cartegoria",
+        "usuario","fecha creacion","fecha modificacion","estado","nombre"};
     DefaultTableModel model = new DefaultTableModel(rows, 0);
     ArrayList<Object[]> data = new ArrayList<>();
     

@@ -149,8 +149,8 @@ public class DAOEmpresa implements Operaciones{
             
             while(rs.next())
             {
-                Object[] rows = new Object[12];
-                for (int i = 0; i <=11; i++) {
+                Object[] rows = new Object[13];
+                for (int i = 0; i <=12; i++) {
                     rows[i] = rs.getObject(i+1);
                 }
                 datos.add(rows);

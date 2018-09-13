@@ -168,7 +168,7 @@ public class frmHome extends javax.swing.JFrame {
         btnEmpresa.setMnemonic('f');
         btnEmpresa.setText("Empresa");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("empresa");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);

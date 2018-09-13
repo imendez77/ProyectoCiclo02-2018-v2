@@ -1,20 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.vistas;
 
 import com.dao.DAOUsuario;
+import com.modelo.Usuario;
+import com.modelo.Rol;
+import com.dao.DAORol;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
+import java.util.List;
+import javax.swing.JComboBox;
+
 
 /**
  *
- * @author Familia
+ * @author Isra Mendez
  */
 public class frmUsuario extends javax.swing.JInternalFrame {
-
+    DAORol daor = new DAORol();
     DAOUsuario dao = new DAOUsuario();
     
     String rows[] = {"Código", "Email", "Username", "Password", "Estado", "ID Rol", "F. Creación", "F. Eliminación", "F. Modificación"};
@@ -24,6 +26,15 @@ public class frmUsuario extends javax.swing.JInternalFrame {
     public frmUsuario() {
         initComponents();
         load();
+        buttons(1);
+        cargarcombo(cmbRol, daor.cmbMostrar());
+    }
+    
+    public void cargarcombo(JComboBox combo, ArrayList<Rol> list) throws Exception
+    {
+        for (Rol item : list) {
+            combo.addItem(new ComboItem(item.getId(), item.getRol()));
+        }
     }
 
     public void load()

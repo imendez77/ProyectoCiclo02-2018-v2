@@ -197,7 +197,7 @@ public class DAOUsuario implements Operaciones{
             while(rs.next())
             {
                 Object[] rows = new Object[8];
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 10; i++) {
                     rows[i] = rs.getObject(i+1);
                 }
                 datos.add(rows);

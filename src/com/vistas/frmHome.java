@@ -227,7 +227,9 @@ public class frmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRolesActionPerformed
-        
+        frmRol frmR = new frmRol();
+        desktopPane.add(frmR);
+        frmR.setVisible(true);
     }//GEN-LAST:event_btnRolesActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

@@ -2,7 +2,6 @@ package com.vistas;
 
 import com.modelo.Usuario;
 import com.dao.DAOUsuario;
-import com.dao.DAORol;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
  * @author Isra Mendez
  */
 public class frmUsuario extends javax.swing.JInternalFrame {
-    DAORol daor = new DAORol();
     DAOUsuario dao = new DAOUsuario();
     
     String rows[] = {"Código", "Email", "Username", "Password", "Estado", "ID Rol", "F. Creación", "F. Eliminación", "F. Modificación"};
@@ -89,7 +87,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         }
     }
     
-    public void contraseñas()
+    public String contraseñas()
     {
         String newPass = "";
         
@@ -103,6 +101,8 @@ public class frmUsuario extends javax.swing.JInternalFrame {
             this.lblPass.setText("Las contraseñas no coinciden");
             this.btnSave.setEnabled(false);
         }
+        
+        return newPass;
     }
     
     @SuppressWarnings("unchecked")
@@ -250,6 +250,12 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Contraseña:");
+
+        txtRPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRPassActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Contraseña:");
@@ -416,7 +422,8 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         }else if(rol.equals("Empresa")){
             id_rol = 3;
         }
-        Usuario user = new Usuario(Integer.parseInt(this.txtCodigou.getText()), this.txtUsername.getText(), this.txtPass.getText(), this.txtCorreo.getText(), id_rol);
+        try {
+            Usuario user = new Usuario(Integer.parseInt(this.txtCodigou.getText()), this.txtUsername.getText(), this.txtPass.getText(), this.txtCorreo.getText(), id_rol);
         
         if(dao.modificar(user))
         {
@@ -425,6 +432,9 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         else
         {
             JOptionPane.showMessageDialog(null, "No se pudo modificar", "FAILED", 0);
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo modificar: "+e.getMessage(), "FAILED", 0);
         }
         load();
         clean();
@@ -449,19 +459,23 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         
             if(dao.insertar(user))
             {
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente", "SUCCESS", 1);
+                JOptionPane.showMessageDialog(null, "Insertado Exitosamente", "SUCCESS", 1);
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "No se pudo modificar", "FAILED", 0);
+                JOptionPane.showMessageDialog(null, "No se pudo insertar", "FAILED", 0);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo modificar: "+e.getMessage(), "FAILED", 0);
+            JOptionPane.showMessageDialog(null, "No se pudo insertar: "+e.getMessage(), "FAILED", 0);
         }
         load();
         clean();
         buttons(1);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtRPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRPassActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

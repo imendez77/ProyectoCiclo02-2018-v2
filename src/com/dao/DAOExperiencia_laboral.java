@@ -28,7 +28,7 @@ public class DAOExperiencia_laboral implements Operaciones {
         ex = (Experiencia_laboral) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "insert into experiencia_laboral (empresa,cargo,tiempolaborado,descripcion,salario,fecha_creacion,fecha_modif,estado) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into experiencia_laboral (empresa,cargo,tiempolaborado,descripcion,salario,fecha_creacion,fecha_modif,estado) values (?,?,?,?,?,NOW(),NOW(),1)";
         
         try 
         {
@@ -41,9 +41,6 @@ public class DAOExperiencia_laboral implements Operaciones {
             pst.setString(3, ex.getTiempolaborado());
             pst.setString(4, ex.getDescripcion());
             pst.setString(5, ex.getSalario());
-            pst.setString(6, ex.getFecha_creacion());
-            pst.setString(7, ex.getFecha_modif());
-            pst.setInt(8, ex.getEstado());
             
             int row = pst.executeUpdate();
             
@@ -66,7 +63,7 @@ public class DAOExperiencia_laboral implements Operaciones {
         ex = (Experiencia_laboral) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "update experiencia_laboral set empresa=?,cargo=?,tiempolaborado=?,descripcion=?,salario=?, fecha_creacion=?, fecha_modif=?, estado= ? where id=?";
+        String sql = "update experiencia_laboral set empresa=?,cargo=?,tiempolaborado=?,descripcion=?,salario=?, fecha_modif=NOW() where id=?";
         
         try 
         {
@@ -79,10 +76,7 @@ public class DAOExperiencia_laboral implements Operaciones {
             pst.setString(3, ex.getTiempolaborado());
             pst.setString(4, ex.getDescripcion());
             pst.setString(5, ex.getSalario());
-            pst.setString(6, ex.getFecha_creacion());
-            pst.setString(7, ex.getFecha_modif());
-            pst.setInt(8, ex.getEstado());
-            pst.setInt(9, ex.getId());
+            pst.setInt(6, ex.getId());
             
             
             int row = pst.executeUpdate();
@@ -138,7 +132,7 @@ public class DAOExperiencia_laboral implements Operaciones {
         Connection con;
         PreparedStatement pst;
         ResultSet rs;
-        String sql = "select * from experiencia_laboral";
+        String sql = "select * from experiencia_laboral where estado=1";
         
         try 
         {

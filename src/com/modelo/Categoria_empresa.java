@@ -28,6 +28,21 @@ public class Categoria_empresa {
         this.estado = estado;
     }
 
+    public Categoria_empresa(String descripcion, Object categoria) {
+        this.descripcion = descripcion;
+        this.categoria = (String) categoria;
+    }
+
+    public Categoria_empresa(int id_catg_empresa, Object categoria, String descripcion) {
+        this.id_catg_empresa = id_catg_empresa;
+        this.categoria = (String) categoria;
+        this.descripcion = descripcion;
+    }
+
+    public Categoria_empresa(int id_catg_empresa) {
+        this.id_catg_empresa = id_catg_empresa;
+    }
+
     public int getEstado() {
         return estado;
     }

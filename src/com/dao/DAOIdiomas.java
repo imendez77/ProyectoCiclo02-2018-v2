@@ -19,7 +19,7 @@ public class DAOIdiomas implements Operaciones{
         idi = (Idiomas) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "insert into idiomas(idioma,nivel,lugar_de_estudio,fecha_creacion,estado) values (?, ?, ?, now(), ?)";
+        String sql = "insert into idiomas(idioma,nivel,lugar_de_estudio,fecha_creacion,fecha_modif,estado) values (?, ?, ?, NOW(),NOW(),1)";
         
         try 
         {
@@ -30,7 +30,6 @@ public class DAOIdiomas implements Operaciones{
             pst.setString(1, idi.getIdioma());
             pst.setString(2, idi.getNivel());
             pst.setString(3, idi.getLugar_de_estudio());
-            pst.setInt(4, idi.getEstado());
             
             int row = pst.executeUpdate();
             
@@ -54,7 +53,7 @@ public class DAOIdiomas implements Operaciones{
         idi = (Idiomas) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "update idiomas set idioma=?, nivel=?, lugar_de_estudio=?, fecha_modif=now(), estado= ? where id=?";
+        String sql = "update idiomas set idioma=?, nivel=?, lugar_de_estudio=?, fecha_modif=NOW() where id=?";
         
         try 
         {
@@ -65,8 +64,7 @@ public class DAOIdiomas implements Operaciones{
             pst.setString(1, idi.getIdioma());
             pst.setString(2, idi.getNivel());
             pst.setString(3, idi.getLugar_de_estudio());
-            pst.setInt(4, idi.getEstado());
-            pst.setInt(5, idi.getId());
+            pst.setInt(4, idi.getId());
             
             int row = pst.executeUpdate();
             
@@ -90,7 +88,7 @@ public class DAOIdiomas implements Operaciones{
         idi = (Idiomas) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "update idiomas set estado=0 where id_user = ?";
+        String sql = "update idiomas set estado=0 where id=?";
         
         try 
         {
@@ -120,7 +118,7 @@ public class DAOIdiomas implements Operaciones{
         Connection con;
         PreparedStatement pst;
         ResultSet rs;
-        String sql = "select * from idiomas";
+        String sql = "select * from idiomas where estado=1;";
         
         try 
         {
@@ -132,7 +130,7 @@ public class DAOIdiomas implements Operaciones{
             while(rs.next())
             {
                 Object[] rows = new Object[6];
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i <=5; i++) {
                     rows[i] = rs.getObject(i+1);
                 }
                 datos.add(rows);

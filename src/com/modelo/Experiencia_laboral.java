@@ -34,6 +34,27 @@ public class Experiencia_laboral {
         this.estado = estado;
     }
 
+    public Experiencia_laboral(String empresa, String cargo, String tiempolaborado, String descripcion, String salario) {
+        this.empresa = empresa;
+        this.cargo = cargo;
+        this.tiempolaborado = tiempolaborado;
+        this.descripcion = descripcion;
+        this.salario = salario;
+    }
+
+    public Experiencia_laboral(int id, String empresa, String cargo, String tiempolaborado, String descripcion, String salario) {
+        this.id = id;
+        this.empresa = empresa;
+        this.cargo = cargo;
+        this.tiempolaborado = tiempolaborado;
+        this.descripcion = descripcion;
+        this.salario = salario;
+    }
+
+    public Experiencia_laboral(int id) {
+        this.id = id;
+    }
+
     public int getEstado() {
         return estado;
     }

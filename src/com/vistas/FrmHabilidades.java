@@ -3,24 +3,21 @@ package com.vistas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import com.dao.DAOCategoria_empresa;
-import com.modelo.Categoria_empresa;
+import com.dao.DAOHabilidades;
+import com.modelo.Habilidades;
 /**
- *Nombre:FrmCategoria
- * Version:1.0
- * Fecha:06/09/2018
- * CopyRight:ITCA
- * @author Javier González
+ *
+ * @author HP
  */
-public class frmCategoria extends javax.swing.JInternalFrame {
-    String columnas[]={"Id empresa","Sector","Descripcion","Fecha creacion","Fecha Modificacion"};
+public class FrmHabilidades extends javax.swing.JInternalFrame {
+    String columnas[]={"Id","Habilidad","Descripcion","Fecha creacion","Fecha Modificacion"};
     DefaultTableModel modelo = new DefaultTableModel(columnas,0);
-    DAOCategoria_empresa dao = new DAOCategoria_empresa();
+    DAOHabilidades dao = new DAOHabilidades();
     ArrayList<Object[]>data = new ArrayList<>();
     /**
-     * Creates new form frmCategoria
+     * Creates new form FrmHabilidades
      */
-    public frmCategoria() {
+    public FrmHabilidades() {
         initComponents();
         actualizar();
         bottons(1);
@@ -45,31 +42,21 @@ public class frmCategoria extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRegistros = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRegistros = new javax.swing.JTable();
         txtId = new javax.swing.JTextField();
-        btnNew = new javax.swing.JButton();
+        txtHabilidad = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
+        btnNew = new javax.swing.JButton();
         btnInsert = new javax.swing.JButton();
-        cbxSectores = new javax.swing.JComboBox<>();
         btnCancel = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(843, 508));
-        setPreferredSize(new java.awt.Dimension(843, 508));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Categoria Empresa");
-
-        jLabel2.setText("ID categoria: ");
-
-        jLabel3.setText("Sector: ");
-
-        jLabel4.setText("Descricpion: ");
+        jLabel1.setText("Habilidades");
 
         tblRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,11 +76,11 @@ public class frmCategoria extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblRegistros);
 
-        txtId.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtIdMouseClicked(evt);
-            }
-        });
+        jLabel2.setText("Id:");
+
+        jLabel3.setText("Habilidad:");
+
+        jLabel4.setText("Descripcion:");
 
         btnNew.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-documento-24.png"))); // NOI18N
@@ -120,13 +107,6 @@ public class frmCategoria extends javax.swing.JInternalFrame {
         btnInsert.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnInsertMouseClicked(evt);
-            }
-        });
-
-        cbxSectores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sector primario", "Sector secundario", "Sector terciario" }));
-        cbxSectores.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cbxSectoresMouseClicked(evt);
             }
         });
 
@@ -172,96 +152,86 @@ public class frmCategoria extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(298, 298, 298)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(14, 14, 14)
-                            .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnCancel)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4))
+                                    .addComponent(txtHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDescripcion))
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtId)
-                            .addComponent(cbxSectores, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)))
-                .addGap(115, 115, 115))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancel)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(cbxSectores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtDescripcion)
-                        .addGap(18, 18, 18)))
+                            .addComponent(txtHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtDescripcion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNew)
                     .addComponent(btnInsert)
                     .addComponent(btnCancel)
                     .addComponent(btnModify)
                     .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(173, 173, 173))
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tblRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRegistrosMouseClicked
-        bottons(2);
-
-        this.txtId.setText(tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 0).toString());
-
-        this.cbxSectores.setActionCommand(tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 1).toString());
-
-        this.txtDescripcion.setText(tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 2).toString());
-
-    }//GEN-LAST:event_tblRegistrosMouseClicked
 
     private void btnNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNewMouseClicked
         clean();
         bottons(3);
     }//GEN-LAST:event_btnNewMouseClicked
 
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewActionPerformed
+
     private void btnNewKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnNewKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNewKeyPressed
 
     private void btnInsertMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseClicked
-        Categoria_empresa catE = new Categoria_empresa(this.txtDescripcion.getText(), this.cbxSectores.getSelectedItem());
-        if (dao.insertar(catE)) {
+        Habilidades hab = new Habilidades(this.txtDescripcion.getText(), this.txtHabilidad.getText());
+        if (dao.insertar(hab)) {
             JOptionPane.showMessageDialog(null, "Datos insertados exitosamente", "SUCCESS", 1);
         } else {
             JOptionPane.showMessageDialog(null, "Error", "FAILED", 0);
@@ -270,10 +240,6 @@ public class frmCategoria extends javax.swing.JInternalFrame {
         clean();
         bottons(1);
     }//GEN-LAST:event_btnInsertMouseClicked
-
-    private void cbxSectoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxSectoresMouseClicked
-
-    }//GEN-LAST:event_cbxSectoresMouseClicked
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         clean();
@@ -288,8 +254,8 @@ public class frmCategoria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModifyMouseClicked
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        Categoria_empresa catE = new Categoria_empresa(Integer.parseInt(this.txtId.getText()), this.cbxSectores.getSelectedItem(), this.txtDescripcion.getText());
-        if (dao.modificar(catE)) {
+        Habilidades hab = new Habilidades(Integer.parseInt(this.txtId.getText()), this.txtHabilidad.getText(), this.txtDescripcion.getText());
+        if (dao.modificar(hab)) {
             JOptionPane.showMessageDialog(null, "Datos modificados exitosamente", "SUCCESS", 1);
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar datos", "FAILED", 0);
@@ -300,11 +266,11 @@ public class frmCategoria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModifyActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        Categoria_empresa catE = new Categoria_empresa(Integer.parseInt(this.txtId.getText()));
+        Habilidades hab = new Habilidades(Integer.parseInt(this.txtId.getText()));
         int yesnot = JOptionPane.showConfirmDialog(this, "Esta seguro que quiere eliminar este registro?", "WARNING!", JOptionPane.YES_NO_OPTION);
         if(yesnot==0)
         {
-            if (dao.eliminar(catE)) {
+            if (dao.eliminar(hab)) {
                 JOptionPane.showMessageDialog(null, "Dato eliminado exitosamente", "Exito", 1);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al borrar datos", "Error", 0);
@@ -319,19 +285,21 @@ public class frmCategoria extends javax.swing.JInternalFrame {
         bottons(1);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNewActionPerformed
+    private void tblRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRegistrosMouseClicked
+        bottons(2);
 
-    private void txtIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMouseClicked
-        this.txtId.setEditable(false);
-    }//GEN-LAST:event_txtIdMouseClicked
-    
-    public void clean()
+        this.txtId.setText(tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 0).toString());
+
+        this.txtHabilidad.setText(tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 1).toString());
+
+        this.txtDescripcion.setText(tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 2).toString());
+    }//GEN-LAST:event_tblRegistrosMouseClicked
+
+ public void clean()
     {
         this.txtId.setText("");
         this.txtDescripcion.setText("");
-        this.cbxSectores.setEnabled(false);
+        this.txtHabilidad.setEnabled(false);
         this.txtDescripcion.setEnabled(false);
     }
     
@@ -347,7 +315,7 @@ public class frmCategoria extends javax.swing.JInternalFrame {
             
             this.txtId.setEnabled(false);
             this.txtDescripcion.setEnabled(false);
-            this.cbxSectores.setEnabled(false);
+            this.txtHabilidad.setEnabled(false);
         }else if(opc==2){
             this.btnDelete.setEnabled(true);
             this.btnInsert.setEnabled(false);
@@ -357,7 +325,7 @@ public class frmCategoria extends javax.swing.JInternalFrame {
             
             this.txtId.setEnabled(false);
             this.txtDescripcion.setEnabled(true);
-            this.cbxSectores.setEnabled(true);
+            this.txtHabilidad.setEnabled(true);
         }else if(opc==3){
             this.btnDelete.setEnabled(false);
             this.btnInsert.setEnabled(true);
@@ -367,17 +335,15 @@ public class frmCategoria extends javax.swing.JInternalFrame {
             
             this.txtId.setEnabled(false);
             this.txtDescripcion.setEnabled(true);
-            this.cbxSectores.setEnabled(true);
+            this.txtHabilidad.setEnabled(true);
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnNew;
-    private javax.swing.JComboBox<String> cbxSectores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -385,6 +351,7 @@ public class frmCategoria extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRegistros;
     private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextField txtHabilidad;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

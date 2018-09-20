@@ -28,6 +28,21 @@ public class Habilidades {
         this.estado = estado;
     }
 
+    public Habilidades(String habilidad, String descripcion) {
+        this.habilidad = habilidad;
+        this.descripcion = descripcion;
+    }
+
+    public Habilidades(int id, String habilidad, String descripcion) {
+        this.id = id;
+        this.habilidad = habilidad;
+        this.descripcion = descripcion;
+    }
+
+    public Habilidades(int id) {
+        this.id = id;
+    }
+
     public int getEstado() {
         return estado;
     }

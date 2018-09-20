@@ -1,5 +1,6 @@
 package com.vistas;
 
+import com.modelo.Idiomas;
 import javax.swing.JOptionPane;
 import com.vistas.*;
 
@@ -40,6 +41,8 @@ public class frmHome extends javax.swing.JFrame {
         btnRoles = new javax.swing.JMenuItem();
         btnProfesionales = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         btnEmpresa = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -179,6 +182,29 @@ public class frmHome extends javax.swing.JFrame {
         });
         btnProfesionales.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-idioma-24.png"))); // NOI18N
+        jMenuItem4.setText("Idiomas");
+        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem4MouseClicked(evt);
+            }
+        });
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        btnProfesionales.add(jMenuItem4);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-habilidad-de-brainstorm-24.png"))); // NOI18N
+        jMenuItem5.setText("Habilidades");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        btnProfesionales.add(jMenuItem5);
+
         menuBar.add(btnProfesionales);
 
         btnEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-organización-24.png"))); // NOI18N
@@ -274,6 +300,22 @@ public class frmHome extends javax.swing.JFrame {
         frmE.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MouseClicked
+        
+    }//GEN-LAST:event_jMenuItem4MouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        FrmIdiomas FrmI = new FrmIdiomas();
+        desktopPane.add(FrmI);
+        FrmI.show();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        FrmHabilidades FrmH = new FrmHabilidades();
+        desktopPane.add(FrmH);
+        FrmH.show();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,6 +366,8 @@ public class frmHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRol;
     public javax.swing.JLabel lblUser;

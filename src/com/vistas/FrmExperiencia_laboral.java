@@ -17,8 +17,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /**
- *
- * @author HP
+ *Nombre:FrmExperiencia_laboral
+ * Version:1.0
+ * Fecha:06/09/2018
+ * CopyRight:ITCA
+ * @author Javier González
  */
 public class FrmExperiencia_laboral extends javax.swing.JInternalFrame {
     String columnas[]={"Id","Empresa","Cargo","Tiempo laborado","Descripcion","Salario","Fecha creacion","Fecha Modificacion"};

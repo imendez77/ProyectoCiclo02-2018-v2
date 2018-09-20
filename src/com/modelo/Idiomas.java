@@ -30,6 +30,23 @@ public class Idiomas {
         this.estado = estado;
     }
 
+    public Idiomas(Object idioma, Object nivel, String lugar_de_estudio) {
+        this.idioma = (String) idioma;
+        this.nivel = (String) nivel;
+        this.lugar_de_estudio = lugar_de_estudio;
+    }
+
+    public Idiomas(int id, Object idioma, Object nivel, String lugar_de_estudio) {
+        this.id = id;
+        this.idioma = (String) idioma;
+        this.nivel = (String) nivel;
+        this.lugar_de_estudio = lugar_de_estudio;
+    }
+
+    public Idiomas(int id) {
+        this.id = id;
+    }
+
     public int getEstado() {
         return estado;
     }

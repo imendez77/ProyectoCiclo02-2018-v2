@@ -24,7 +24,7 @@ public class DAOHabilidades implements Operaciones{
         ha = (Habilidades) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "insert into habilidades (habilidad,descripcion,fecha_creacion,fecha_modif,estado) values (?,?,?,?,?)";
+        String sql = "insert into habilidades (habilidad,descripcion,fecha_creacion,fecha_modif,estado) values (?,?,now(),now(),1);";
         
         try 
         {
@@ -34,9 +34,7 @@ public class DAOHabilidades implements Operaciones{
             
             pst.setString(1, ha.getHabilidad());
             pst.setString(2, ha.getDescripcion());
-            pst.setString(3, ha.getFecha_creacion());
-            pst.setString(4, ha.getFecha_modif());
-            pst.setInt(5, ha.getEstado());
+
             
             int row = pst.executeUpdate();
             
@@ -59,7 +57,7 @@ public class DAOHabilidades implements Operaciones{
         ha = (Habilidades) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "update habilidades set habilidad=?, descripcion=?, fecha_creacion=?, fecha_modif=?, estado= ? where id=?";
+        String sql = "update habilidades set habilidad=?, descripcion=?,fecha_modif=NOW(), where id=?";
         
         try 
         {
@@ -69,10 +67,7 @@ public class DAOHabilidades implements Operaciones{
             
             pst.setString(1, ha.getHabilidad());
             pst.setString(2, ha.getDescripcion());
-            pst.setString(3, ha.getFecha_creacion());
-            pst.setString(4, ha.getFecha_modif());
-            pst.setInt(5, ha.getEstado());
-            pst.setInt(6, ha.getId());
+            pst.setInt(3, ha.getId());
             
             int row = pst.executeUpdate();
             
@@ -127,7 +122,7 @@ public class DAOHabilidades implements Operaciones{
         Connection con;
         PreparedStatement pst;
         ResultSet rs;
-        String sql = "select * from habilidades";
+        String sql = "select * from habilidades where estado=1";
         
         try 
         {

@@ -215,7 +215,7 @@ public class frmHome extends javax.swing.JFrame {
         if(yesnot==0)
         {
             this.setVisible(false);
-            frmInicio inicio = null;
+            frmInicio inicio = new frmInicio();
             inicio.setVisible(true);
         }
         

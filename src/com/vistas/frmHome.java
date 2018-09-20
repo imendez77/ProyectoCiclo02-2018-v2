@@ -39,8 +39,10 @@ public class frmHome extends javax.swing.JFrame {
         btnUsuarios = new javax.swing.JMenuItem();
         btnRoles = new javax.swing.JMenuItem();
         btnProfesionales = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         btnEmpresa = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(2, 2));
@@ -86,9 +88,9 @@ public class frmHome extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,19 +164,43 @@ public class frmHome extends javax.swing.JFrame {
         btnProfesionales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-trabajador-de-sexo-masculino-24.png"))); // NOI18N
         btnProfesionales.setMnemonic('f');
         btnProfesionales.setText("Profesionales");
+
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-documento-24.png"))); // NOI18N
+        jMenuItem3.setText("Experiencia laboral");
+        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem3MouseClicked(evt);
+            }
+        });
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        btnProfesionales.add(jMenuItem3);
+
         menuBar.add(btnProfesionales);
 
         btnEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-organización-24.png"))); // NOI18N
         btnEmpresa.setMnemonic('f');
         btnEmpresa.setText("Empresa");
+        btnEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmpresaActionPerformed(evt);
+            }
+        });
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-categorizar-24.png"))); // NOI18N
+        jMenuItem1.setText("Categoria empresa");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
         btnEmpresa.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        btnEmpresa.add(jMenuItem2);
 
         menuBar.add(btnEmpresa);
 
@@ -218,9 +244,7 @@ public class frmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutfrmActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        desktopPane.removeAll();
-        desktopPane.updateUI();
-        frmUsuario frmU = null;
+        frmUsuario frmU = new frmUsuario();
         desktopPane.add(frmU);
         frmU.setVisible(true);
     }//GEN-LAST:event_btnUsuariosActionPerformed
@@ -230,11 +254,25 @@ public class frmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRolesActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrmEmpresa emp = new FrmEmpresa();
-        desktopPane.add(emp);
-        emp.setVisible(true);
+        frmCategoria frmC = new frmCategoria();
+        desktopPane.add(frmC);
+        frmC.show();
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void btnEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpresaActionPerformed
+        
+    }//GEN-LAST:event_btnEmpresaActionPerformed
+
+    private void jMenuItem3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseClicked
+        
+    }//GEN-LAST:event_jMenuItem3MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        FrmExperiencia_laboral frmE = new FrmExperiencia_laboral();
+        desktopPane.add(frmE);
+        frmE.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +322,8 @@ public class frmHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRol;
     public javax.swing.JLabel lblUser;

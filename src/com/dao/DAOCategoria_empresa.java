@@ -24,7 +24,7 @@ public class DAOCategoria_empresa implements Operaciones{
         catE = (Categoria_empresa) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "insert into categoria_empresa (categoria,descripcion,fecha_creacion,fecha_modif,estado) values (?,?,?,?,?)";
+        String sql = "insert into categoria_empresa (categoria,descripcion,fecha_creacion,fecha_modif,estado) values (?,?,NOW(),NOW(),1)";
         
         try 
         {
@@ -33,11 +33,7 @@ public class DAOCategoria_empresa implements Operaciones{
             pst = con.prepareStatement(sql);
             
             pst.setString(1, catE.getCategoria());
-            pst.setString(2, catE.getDescripcion());
-            pst.setString(3, catE.getFecha_creacion());
-            pst.setString(4, catE.getFecha_modif());
-            pst.setInt(5, catE.getEstado());
-            
+            pst.setString(2, catE.getDescripcion());            
             int row = pst.executeUpdate();
             
             if(row>0)
@@ -59,7 +55,7 @@ public class DAOCategoria_empresa implements Operaciones{
         catE = (Categoria_empresa) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "update categoria_empresa set categoria=?, descripcion=?, fecha_creacion=?, fecha_modif=?, estado= ? where id_catg_empresa=?";
+        String sql = "update categoria_empresa set categoria=?, descripcion=?, fecha_modif=NOW(), estado= 1 where id_catg_empresa=?";
         
         try 
         {
@@ -69,10 +65,7 @@ public class DAOCategoria_empresa implements Operaciones{
             
             pst.setString(1, catE.getCategoria());
             pst.setString(2, catE.getDescripcion());
-            pst.setString(3, catE.getFecha_creacion());
-            pst.setString(4, catE.getFecha_modif());
-            pst.setInt(5, catE.getEstado());
-            pst.setInt(6, catE.getId_catg_empresa());
+            pst.setInt(3, catE.getId_catg_empresa());
             
             int row = pst.executeUpdate();
             
@@ -127,7 +120,7 @@ public class DAOCategoria_empresa implements Operaciones{
         Connection con;
         PreparedStatement pst;
         ResultSet rs;
-        String sql = "select * from categoria_empresa";
+        String sql = "select * from categoria_empresa where estado=1";
         
         try 
         {
@@ -138,8 +131,8 @@ public class DAOCategoria_empresa implements Operaciones{
             
             while(rs.next())
             {
-                Object[] rows = new Object[6];
-                for (int i = 0; i <=5; i++) {
+                Object[] rows = new Object[5];
+                for (int i = 0; i <=4; i++) {
                     rows[i] = rs.getObject(i+1);
                 }
                 datos.add(rows);
@@ -154,6 +147,7 @@ public class DAOCategoria_empresa implements Operaciones{
         {
             return datos;
         }
+        
     }
     
 }

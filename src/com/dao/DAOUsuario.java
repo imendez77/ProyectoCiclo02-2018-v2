@@ -113,39 +113,6 @@ public class DAOUsuario implements Operaciones{
             return false;
         }
     }
-
-    public ArrayList<Object[]> llenar_combo()
-    {
-        ArrayList<Object[]> combo = new ArrayList<>();
-        Connection con;
-        PreparedStatement pst;
-        ResultSet rs;
-        String sql = "select * from rol";
-        
-        try {
-            Class.forName(db.getDriver());
-            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
-            pst = con.prepareStatement(sql);
-            rs = pst.executeQuery();
-            
-            while(rs.next())
-            {
-                Object[] rows = new Object[8];
-                for (int i = 0; i < 8; i++) {
-                    rows[i] = rs.getObject(i+1);
-                }
-                combo.add(rows);
-            }
-            con.close();
-        } 
-        catch (Exception e) {
-            
-        }
-        finally{
-            return combo;
-        }
-    }
-    
     
     @Override
     public boolean modificar(Object obj) {

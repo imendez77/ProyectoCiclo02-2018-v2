@@ -135,6 +135,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         txtCodigou = new javax.swing.JTextField();
         cmbRol = new javax.swing.JComboBox<>();
 
+        setClosable(true);
         setMaximumSize(new java.awt.Dimension(763, 422));
         setMinimumSize(new java.awt.Dimension(763, 422));
         setPreferredSize(new java.awt.Dimension(763, 422));

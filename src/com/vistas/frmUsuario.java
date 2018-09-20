@@ -2,6 +2,7 @@ package com.vistas;
 
 import com.modelo.Usuario;
 import com.dao.DAOUsuario;
+import com.dao.DAORol;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -13,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmUsuario extends javax.swing.JInternalFrame {
     DAOUsuario dao = new DAOUsuario();
+    DAORol daor = new DAORol();
     
     String rows[] = {"Código", "Email", "Username", "Password", "Estado", "ID Rol", "F. Creación", "F. Eliminación", "F. Modificación"};
     DefaultTableModel model = new DefaultTableModel(rows, 0);
@@ -33,6 +35,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
             this.model.addRow(dt);
         }
         this.tableDUsuarios.setModel(model);
+        
     }
     
     public void clean()
@@ -200,6 +203,11 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         btnDelete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-basura-24.png"))); // NOI18N
         btnDelete.setText("Eliminar");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -476,6 +484,10 @@ public class frmUsuario extends javax.swing.JInternalFrame {
     private void txtRPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRPassActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

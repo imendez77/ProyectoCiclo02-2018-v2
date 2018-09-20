@@ -28,7 +28,7 @@ public class DAORol implements Operaciones{
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
             pst = con.prepareStatement(sql);
             
-            pst.setString(1, rol.getRol());
+            pst.setString(0, rol.getRol());
             
             int row = pst.executeUpdate();
             
@@ -59,8 +59,8 @@ public class DAORol implements Operaciones{
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
             pst = con.prepareStatement(sql);
             
-            pst.setString(1, rol.getRol());
-            pst.setInt(2, rol.getId());
+            pst.setString(0, rol.getRol());
+            pst.setInt(1, rol.getId());
             
             int row = pst.executeUpdate();
             
@@ -73,7 +73,7 @@ public class DAORol implements Operaciones{
                 return false;
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar: "+e.getMessage(), "ERROR", 0);
+            JOptionPane.showMessageDialog(null, "Error al modificar: "+e.getMessage(), "ERROR", 0);
             return false;
         }
     }
@@ -83,7 +83,7 @@ public class DAORol implements Operaciones{
         rol = (Rol) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "delete from rol where id=?";
+        String sql = "update rol set estado=0 where id=?";
         
         try 
         {
@@ -104,7 +104,7 @@ public class DAORol implements Operaciones{
                 return false;
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar: "+e.getMessage(), "ERROR", 0);
+            JOptionPane.showMessageDialog(null, "Error al eliminar: "+e.getMessage(), "ERROR", 0);
             return false;
         }
     }

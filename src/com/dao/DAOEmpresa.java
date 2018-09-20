@@ -23,7 +23,7 @@ public class DAOEmpresa implements Operaciones {
         emp = (Empresa) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "insert into empresa (descripcion,direccion,ciudad,mision,vision,contacto,id_categoria_e,id_usuario,fecha_creacion,fecha_modif,estado,nombre) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into empresa (descripcion,direccion,ciudad,mision,vision,contacto,id_categoria_e,id_usuario,fecha_creacion,estado,nombre) values (?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             Class.forName(db.getDriver());
@@ -36,10 +36,11 @@ public class DAOEmpresa implements Operaciones {
             pst.setString(4, emp.getMision());
             pst.setString(5, emp.getVision());
             pst.setString(6, emp.getContacto());
-            pst.setString(7, emp.getFecha_creacion());
-            pst.setString(8, emp.getFecha_modif());
-            pst.setInt(9, emp.getEstado());
-            pst.setString(10, emp.getNombre());
+            pst.setInt(7, emp.getId_categoria_e());
+            pst.setInt(8, emp.getId_usuario());
+            pst.setString(9, emp.getFecha_creacion());
+            pst.setInt(10,1);
+            pst.setString(11, emp.getNombre());
 
             int row = pst.executeUpdate();
 
@@ -61,7 +62,7 @@ public class DAOEmpresa implements Operaciones {
         emp = (Empresa) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "update empresa set descripcion=?,direccion=?,ciudad=?,mision=?,vision=?,contacto=?, fecha_creacion=?, fecha_modif=?, estado= ? nombre=? where id_empresa=?";
+        String sql = "update empresa set descripcion=?,direccion=?,ciudad=?,mision=?,vision=?,contacto=?, fecha_modif=?, estado= ?, nombre=? where id_empresa=?";
 
         try {
             Class.forName(db.getDriver());
@@ -73,11 +74,10 @@ public class DAOEmpresa implements Operaciones {
             pst.setString(3, emp.getCiudad());
             pst.setString(4, emp.getMision());
             pst.setString(5, emp.getVision());
-            pst.setString(5, emp.getContacto());
-            pst.setString(6, emp.getFecha_creacion());
+            pst.setString(6, emp.getContacto());
             pst.setString(7, emp.getFecha_modif());
             pst.setInt(8, emp.getEstado());
-            pst.setString(9, emp.getContacto());
+            pst.setString(9, emp.getNombre());
             pst.setInt(10, emp.getId_empresa());
 
             int row = pst.executeUpdate();

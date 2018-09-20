@@ -224,6 +224,8 @@ public class frmHome extends javax.swing.JFrame {
         frmUsuario frmU = new frmUsuario();
         desktopPane.add(frmU);
         frmU.setVisible(true);
+        
+        
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRolesActionPerformed

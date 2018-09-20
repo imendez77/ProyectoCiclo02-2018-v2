@@ -3,6 +3,7 @@ package com.dao;
 import com.modelo.Operaciones;
 import com.conexion.Conexion;
 import com.modelo.Usuario;
+import com.modelo.Rol;
 import java.util.ArrayList;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -112,7 +113,7 @@ public class DAOUsuario implements Operaciones{
             return false;
         }
     }
-
+    
     @Override
     public boolean modificar(Object obj) {
         user = (Usuario) obj;
@@ -130,7 +131,7 @@ public class DAOUsuario implements Operaciones{
             pst.setString(2, user.getUsername());
             pst.setString(3, user.getPassword());
             pst.setInt(4, user.getId_rol());
-            pst.setInt(6, user.getId_user());
+            pst.setInt(5, user.getId_user());
             
             int row = pst.executeUpdate();
             

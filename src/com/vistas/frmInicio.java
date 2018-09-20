@@ -102,9 +102,6 @@ public class frmInicio extends javax.swing.JFrame {
         String us = this.txtUser.getText();
         String pss = String.valueOf(this.txtPass.getPassword());
         
-        ArrayList<Object[]> userA = new ArrayList<>();
-        
-        
         if(this.txtUser.getText().isEmpty() || this.txtPass.getPassword().length == 0)
         {
             JOptionPane.showMessageDialog(null, "Debe llenar ambos campos");

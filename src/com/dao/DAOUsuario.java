@@ -93,10 +93,10 @@ public class DAOUsuario implements Operaciones{
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
             pst = con.prepareStatement(sql);
             
-            pst.setString(2, user.getEmail());
-            pst.setString(3, user.getUsername());
-            pst.setString(4, user.getPassword());
-            pst.setInt(5, user.getId_rol());
+            pst.setString(1, user.getEmail());
+            pst.setString(2, user.getUsername());
+            pst.setString(3, user.getPassword());
+            pst.setInt(4, user.getId_rol());
             
             int row = pst.executeUpdate();
             
@@ -186,7 +186,7 @@ public class DAOUsuario implements Operaciones{
         Connection con;
         PreparedStatement pst;
         ResultSet rs;
-        String sql = "select * from usuario";
+        String sql = "select * from usuario where estado=1";
         
         try 
         {

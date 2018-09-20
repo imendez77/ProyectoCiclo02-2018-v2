@@ -21,6 +21,11 @@ public class Usuario {
         this.email = email;
         this.id_rol = id_rol;
     }
+    
+    public Usuario(int id_user)
+    {
+        this.id_user = id_user;
+    }
 
     public int getId_user() {
         return id_user;

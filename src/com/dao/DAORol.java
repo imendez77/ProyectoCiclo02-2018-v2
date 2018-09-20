@@ -20,7 +20,7 @@ public class DAORol implements Operaciones{
         rol = (Rol) obj;
         Connection con;
         PreparedStatement pst;
-        String sql = "insert into rol values (0, ?, 1)";
+        String sql = "insert into rol(id, nombre, estado) values(0, ?, 1)";
         
         try 
         {
@@ -28,7 +28,7 @@ public class DAORol implements Operaciones{
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
             pst = con.prepareStatement(sql);
             
-            pst.setString(0, rol.getRol());
+            pst.setString(1, rol.getRol());
             
             int row = pst.executeUpdate();
             
@@ -59,8 +59,8 @@ public class DAORol implements Operaciones{
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
             pst = con.prepareStatement(sql);
             
-            pst.setString(0, rol.getRol());
-            pst.setInt(1, rol.getId());
+            pst.setString(1, rol.getRol());
+            pst.setInt(2, rol.getId());
             
             int row = pst.executeUpdate();
             
@@ -115,7 +115,7 @@ public class DAORol implements Operaciones{
         Connection con;
         PreparedStatement pst;
         ResultSet rs;
-        String sql = "select * from rol";
+        String sql = "select * from rol where estado=1";
         
         try 
         {

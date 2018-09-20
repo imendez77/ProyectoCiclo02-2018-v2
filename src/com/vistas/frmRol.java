@@ -19,6 +19,8 @@ public class frmRol extends javax.swing.JInternalFrame {
     public frmRol() {
         initComponents();
         load();
+        this.txtIdrol.setEnabled(false);
+        buttons(1);
     }
 
     public void load()
@@ -31,7 +33,55 @@ public class frmRol extends javax.swing.JInternalFrame {
         this.tableRoles.setModel(model);
     }
     
+    public void clean()
+    {
+        this.txtIdrol.setText("");
+        this.txtRolname.setText("");
+    }
     
+    public void buttons(int opc)
+    {
+        if(opc==1)
+        {
+            this.btnCancel.setEnabled(false);
+            this.btnDelete.setEnabled(false);
+            this.btnSave.setEnabled(false);
+            this.btnModify.setEnabled(false);
+            this.btnNew.setEnabled(true);
+            
+            this.txtRolname.setEnabled(false);
+        }else if(opc==2){
+            this.btnCancel.setEnabled(true);
+            this.btnDelete.setEnabled(false);
+            this.btnSave.setEnabled(true);
+            this.btnModify.setEnabled(false);
+            this.btnNew.setEnabled(false);
+            
+            this.txtRolname.setEnabled(true);
+        }else if(opc==3){
+            this.btnCancel.setEnabled(true);
+            this.btnDelete.setEnabled(true);
+            this.btnSave.setEnabled(false);
+            this.btnModify.setEnabled(true);
+            this.btnNew.setEnabled(false);
+            
+            this.txtRolname.setEnabled(true);
+        }
+    }
+        
+    public boolean validar()
+    {
+        int value=0;
+        
+        if(this.txtRolname.getText().isEmpty())
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,6 +140,11 @@ public class frmRol extends javax.swing.JInternalFrame {
         btnNew.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-documento-24.png"))); // NOI18N
         btnNew.setText("Nuevo");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
 
         btnSave.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-guardar-24.png"))); // NOI18N
@@ -106,6 +161,11 @@ public class frmRol extends javax.swing.JInternalFrame {
         btnCancel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-cancelar-24.png"))); // NOI18N
         btnCancel.setText("Cancelar");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         btnModify.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnModify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icons8-editar-archivo-24.png"))); // NOI18N
@@ -206,24 +266,32 @@ public class frmRol extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        try {
+        if(validar())
+        {
+            try {
             Rol rol = new Rol(this.txtRolname.getText());
-        
-            if(dao.insertar(rol))
-            {
-                JOptionPane.showMessageDialog(null, "Insertado Exitosamente", "SUCCESS", 1);
+
+                if(dao.insertar(rol))
+                {
+                    JOptionPane.showMessageDialog(null, "Insertado Exitosamente", "SUCCESS", 1);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No se pudo Insertar", "FAILED", 0);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo Insertar: "+e.getMessage(), "FAILED", 0);
             }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "No se pudo Insertar", "FAILED", 0);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo Insertar: "+e.getMessage(), "FAILED", 0);
-        }
-        load();
+            load();
+            buttons(1);
+            clean();
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe completar y seleccionar todos los campos", "FAILED", 0);
+        } 
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void tableRolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableRolesMouseClicked
+        buttons(3);
         this.txtIdrol.setText(this.tableRoles.getValueAt(tableRoles.getSelectedRow(), 0).toString());
         this.txtRolname.setText(this.tableRoles.getValueAt(tableRoles.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tableRolesMouseClicked
@@ -248,7 +316,18 @@ public class frmRol extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "No se pudo Eliminar: "+e.getMessage(), "FAILED", 0);
         }
         load();
+        buttons(1);
+        clean();
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        buttons(2);
+    }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        buttons(1);
+        clean();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
